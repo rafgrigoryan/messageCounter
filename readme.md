@@ -8,19 +8,6 @@
 
 Update the `config.js` file to configure RabbitMQ connection details and messages count.
 
-### Running the Receiver
-
-To start receiving messages, follow these steps:
-
-1. Open a terminal and navigate to the project directory.
-
-2. Run the receiver script using the following command:
-
-    ```bash
-    node receiver.js
-    ```
-
-   This command initiates the receiver script, allowing it to continuously listen for incoming messages.
 
 ### Running the Sender
 
@@ -36,7 +23,7 @@ To send messages to the RabbitMQ queue, follow these steps:
 
    The sender script will send the specified number of messages (configured in `config.js`) to the RabbitMQ queue.
 
-### Generating Message Count Report
+### Running Reciever
 
 To generate a message count report after running the receiver, follow these steps:
 
@@ -50,7 +37,7 @@ To generate a message count report after running the receiver, follow these step
     node reciever.js
     ```
 
-   This command will display the total count of messages received in second.
+   This command will display the total count of messages count received in a second.
 
 ### Notes
 
