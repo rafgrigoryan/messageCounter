@@ -1,9 +1,9 @@
-const amqp = require('amqplib');
+const amqp = require("amqplib");
 
 class Rabbit {
-  constructor(connection,queueName) {
+  constructor(connection, queueName) {
     this.connection = connection;
-    this.queueName=queueName
+    this.queueName = queueName;
     this.channel = null;
   }
 
@@ -13,7 +13,7 @@ class Rabbit {
     await this.channel.assertQueue(this.queueName, { durable: false });
   }
 
-  async sendMessage(message){
+  async sendMessage(message) {
     await this.channel.sendToQueue(this.queueName, Buffer.from(message));
   }
 

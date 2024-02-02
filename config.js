@@ -1,5 +1,5 @@
 module.exports = {
-    rabbitMQUrl: 'amqp://localhost',
-    queueName: 'messages',
-    messagesCount:10000
-  };
+  rabbitMQUrl: "amqp://localhost",
+  queueName: "messages",
+  messagesCount: 10000,
+};

@@ -1,18 +1,22 @@
-const config=require('./config')
-const rabbitChannel=require('./rabbit')
+const config = require("./config");
+const rabbitChannel = require("./rabbit");
 
 async function sendMessages() {
-    const{rabbitMQUrl,queueName,messagesCount}=config
-    const mq=new rabbitChannel(rabbitMQUrl,queueName)
-    await mq.connect()
+  const { rabbitMQUrl, queueName, messagesCount } = config;
+  const mq = new rabbitChannel(rabbitMQUrl, queueName);
+  try {
+    await mq.connect();
 
-  for (let i = 1; i <= messagesCount; i++) {
-    const message = `Message ${i}`;
-    mq.sendMessage(message)
-    console.log(`Sent: ${message}`);
+    for (let i = 1; i <= messagesCount; i++) {
+      const message = `Me ssage ${i}`;
+      mq.sendMessage(message);
+      console.log(`Sent: ${message}`);
+    }
+    
+    await mq.closeConnection();
+  } catch (error) {
+    console.error("Error:", error.message);
   }
-
-  await mq.closeConnection()
 }
 
 sendMessages();
